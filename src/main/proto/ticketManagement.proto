@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+option java_package = "de.uniba.rz.io.rpc";
+option java_multiple_files = true;
+option java_outer_classname = "TicketManagement";
+
+option objc_class_prefix = "RTG";
+
+/*
+	The number of services are equal to the number of methods that 
+	are requested from users
+*/
+
+service TicketRPC{
+    rpc createTicket(TicketRequest) returns (TicketResponse){};
+    rpc getAllTickets(Empty) returns (TicketList){};
+    rpc getTicketById(TicketId) returns (TicketResponse){};
+    rpc acceptTicket(TicketId) returns (TicketResponse){};
+    rpc rejectTicket(TicketId) returns (TicketResponse){};
+    rpc closeTicket(TicketId) returns (TicketResponse){};
+    rpc StreamNewTicket(stream AutoNewTicketRequest) returns(stream TicketList){};
+}
+
+message Empty{
+}
+
+message TicketList{
+	bytes allTickets = 1;
+}
+
+message TicketRequest{
+	string reporter = 1;
+	string topic = 2;
+	string desciption = 3;
+	string type = 4;
+	string priority = 5;
+	string status = 6;
+}
+
+message TicketResponse{
+	int32 ticketid = 1;
+	string reporter = 2;
+	string topic = 3;
+	string desciption = 4;
+	string type = 5;
+	string priority = 6;
+	string status = 7;
+}
+
+message AutoNewTicketRequest{
+ 	int32 ticketid =1;
+}
+
+message TicketId{
+	int32 ticketId = 1;
+}
