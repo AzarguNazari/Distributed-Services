@@ -1,9 +1,13 @@
 package de.uniba.rz.entities;
 
+import javax.xml.ws.WebFault;
+
 /**
  * Exception to be thrown if a problem occurs during ticket handling.
  * 
  */
+
+@WebFault
 public class TicketException extends Exception {
 
 	private static final long serialVersionUID = 1L;

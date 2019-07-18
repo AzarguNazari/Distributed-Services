@@ -1,15 +1,20 @@
-package de.uniba.rz.app;
+package de.uniba.searchservice.interfaces;
+
 
 import java.util.List;
+
+import javax.jws.WebService;
+import javax.xml.soap.SOAPException;
+import javax.xml.ws.soap.SOAPFaultException;
 
 import de.uniba.rz.entities.Ticket;
 import de.uniba.rz.entities.TicketException;
 import de.uniba.rz.entities.Type;
 
-/**
- * Defines the actions the GUI is calling to search for {@link Ticket}s
- */
-public interface TicketSearchBackend {
+
+
+@WebService
+public interface SearchService {
 	/**
 	 * Method to search for a Ticket based on the provided information
 	 * 
@@ -17,10 +22,8 @@ public interface TicketSearchBackend {
 	 * @return a list of {@link Ticket} that fulfill the requested attributes
 	 * @throws TicketException if something failed
 	 */
-	default List<Ticket> getTicketsByName(String name) throws TicketException{
-		throw new UnsupportedOperationException("Not implemented yet");
-	};
-	
+	List<Ticket> getTicketsByName(String name)  throws SOAPFaultException, SOAPException;
+
 	/**
 	 * Method to search for a Ticket based on the provided information
 	 * 
@@ -29,8 +32,5 @@ public interface TicketSearchBackend {
 	 * @return a list of {@link Ticket} that fulfill the requested attributes
 	 * @throws TicketException if something failed
 	 */
-	default List<Ticket> getTicketsByNameAndType(String name, Type type) throws TicketException{
-		throw new UnsupportedOperationException("Not implemented yet");
-	};
-	
+	 List<Ticket> getTicketsByNameAndType(String name, Type type)  throws SOAPFaultException, SOAPException;
 }

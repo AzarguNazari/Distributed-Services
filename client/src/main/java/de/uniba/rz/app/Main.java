@@ -1,5 +1,6 @@
 package de.uniba.rz.app;
 
+
 import de.uniba.rz.ui.swing.MainFrame;
 import de.uniba.rz.ui.swing.SwingMainController;
 import de.uniba.rz.ui.swing.SwingMainModel;
@@ -36,16 +37,15 @@ public class Main {
 	 * 
 	 */
 	
-	static SwingMainController control;
-	static SwingMainModel model;
-	static MainFrame mf;
+
 	
 	public static void main(String[] args) {
+					
 		TicketManagementBackend backendToUse = evaluateArgs(args);
 
-	    control = new SwingMainController(backendToUse);
-	    model = new SwingMainModel(backendToUse);
-		mf = new MainFrame(control, model);
+		SwingMainController control = new SwingMainController(backendToUse);
+		SwingMainModel model = new SwingMainModel(backendToUse);
+		MainFrame mf = new MainFrame(control, model);
 
 		control.setMainFrame(mf);
 		control.setSwingMainModel(model);
@@ -71,6 +71,7 @@ public class Main {
 	 * @see TicketManagementBackend
 	 */
 	private static TicketManagementBackend evaluateArgs(String[] args) {
+		
 		if (args == null || args.length == 0) {
 			System.out.println("No arguments passed. Using local backend implemenation.");
 			return new LocalTicketManagementBackend();
@@ -88,11 +89,13 @@ public class Main {
 			case "jms":
 				return new JmsTicketManagementBackend();
 
-			case "grpc":
-				host = args[1];
-				port = Integer.valueOf(args[2]);
-				return new GRPCTicketMangementBackend(host, port);
+//			case "grpc":
+//				host = args[1];
+//				port = Integer.valueOf(args[2]);
+//				return new GRPCTicketMangementBackend(host, port);
 				
+			case "wsdl":
+				return new WSDLticketManagement();
 				
 			// Default case for unknown implentations
 			default:

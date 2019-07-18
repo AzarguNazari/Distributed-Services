@@ -50,7 +50,7 @@ allprojects {
 		task wsimport(group: "WS tools", description: "execute wsimport task with a given wsdl location") {
 			doLast{
 				if (!project.hasProperty('wsdl')) {
-					throw new GradleException('No wsdl location provided, please provide a wsdl location such as: \"wsimport -Pwsdl=\"http://localhost:8080/MyService?wsdl\"\"')
+					throw new GradleException('No wsdl location provided, please provide a wsdl location such as: \"wsimport -Pwsdl=\"http://localhost:8888/ticketService?wsdl\"\"')
 				} else {
 					ant.taskdef(name: 'wsimport', classname: 'com.sun.tools.ws.ant.WsImport', classpath: configurations.wstools.asPath)
 					ant.wsimport(wsdl: wsdl, 

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.NamingException;
+import javax.xml.ws.Endpoint;
+
+import de.uniba.rz.backend.WSDLremoteAccess;
 
 public class TicketServerMain {
 
@@ -57,9 +60,10 @@ public class TicketServerMain {
 		
 		// For now just want to see the work of gRPC's
 		
+		implementations.add(new WSDLremoteAccess());
 		
-		int port = Integer.parseInt(args[0]);
-		implementations.add(new GRPCRemoteAccess(port));
+//		int port = Integer.parseInt(args[0]);
+//		implementations.add(new GRPCRemoteAccess(port));
 
 		// impplemenations.add(new JmsAccessRemote(address, ports));
 		
