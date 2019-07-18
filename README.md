@@ -1,8 +1,8 @@
-# Introduction to Distributed Systems - Assignment Template
+# Distributed MicroServie
 
-## General Information
+## About this project
 
-The following template is structured as a multi-project build using gradle as a build tool.
+This project is a multi-project build using gradle as a build tool.
 By the way, gradle is the only tool supporting multi-project builds.
 The main project _idistrsys_ specifies all included subprojects in the _settings.gradle_ file.
 _client_ and _server_ are dependent on the _shared_ project since all the model classes are included in this project.
