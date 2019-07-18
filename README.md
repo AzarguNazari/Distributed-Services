@@ -1,4 +1,4 @@
-# Distributed MicroServie
+# Distributed MicroServices
 
 ## About this project
 
