@@ -2,10 +2,7 @@
 
 ## About this project
 
-This project is a multi-project build using gradle as a build tool.
-By the way, gradle is the only tool supporting multi-project builds.
-The main project _idistrsys_ specifies all included subprojects in the _settings.gradle_ file.
-_client_ and _server_ are dependent on the _shared_ project since all the model classes are included in this project.
+This project is consist of several project (multi-project) which implements some of the distributed services between server and client interface which is a ticket managmeent app. In this project, the implmentation of distributed services are in GRPC (Google RPC), UDP packeting, JMS (java messaging service) and WSDL (web service definition language). The implmenetation works parallel both on server and client sides. 
 
 ## How to get the server and client running?
 
