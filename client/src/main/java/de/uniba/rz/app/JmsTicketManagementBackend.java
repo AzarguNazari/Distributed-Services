@@ -1,18 +1,10 @@
 package de.uniba.rz.app;
 
-import com.sun.messaging.QueueConnectionFactory;
 import de.uniba.rz.entities.*;
 import de.uniba.rz.entities.QueueSender;
-
-import javax.jms.*;
-import javax.jms.Queue;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
